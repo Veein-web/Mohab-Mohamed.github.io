@@ -13,7 +13,8 @@
     <header>
         <div class="container">
             <div class="logo">Mohab M.</div>
-            <nav>
+            <!-- === UPDATED NAVIGATION FOR RESPONSIVENESS === -->
+            <nav class="main-nav">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
@@ -22,9 +23,14 @@
                 <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
             </nav>
+            <!-- === NEW: HAMBURGER ICON FOR MOBILE === -->
+            <button class="hamburger" id="hamburger-icon" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
+    <!-- ... (The rest of the body content remains exactly the same ) ... -->
     <section id="home" class="hero">
         <div id="particles-js"></div>
         <div class="container">
@@ -144,7 +150,6 @@
         <p>&copy; 2025 Mohab Mohamed Ramadan. Designed & Built with Passion.</p>
     </footer>
 
-    <!-- === THIS IS THE FIX === -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
