@@ -1,18 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- =================================================================
+    METADATA AND CORE CONFIGURATION
+    ================================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mohab Mohamed Ali Mohamed Ramadan">
+    <meta name="description" content="Professional portfolio for Mohab Mohamed, an IT Specialist in Cybersecurity, AI, and Cloud Technologies.">
+
+    <!-- Page Title -->
     <title>Mohab Mohamed | Software & AI Portfolio</title>
+
+    <!-- =================================================================
+    EXTERNAL FONTS AND STYLESHEETS
+    ================================================================== -->
+
+    <!-- Google Fonts: Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
+    <!-- =================================================================
+    CUSTOM CURSOR AND OVERLAY EFFECTS
+    These elements are for advanced visual effects controlled by JavaScript.
+    ================================================================== -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="scan-lines"></div>
+
+    <!-- =================================================================
+    HEADER SECTION
+    Contains the logo, main navigation, and mobile menu button.
+    ================================================================== -->
     <header>
         <div class="container">
+
+            <!-- Site Logo -->
             <div class="logo">Mohab M.</div>
+
+            <!-- Main Desktop Navigation -->
             <nav class="main-nav">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -22,79 +56,128 @@
                 <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
             </nav>
+
+            <!-- Hamburger Menu Button for Mobile -->
             <button class="hamburger" id="hamburger-icon" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
+
         </div>
     </header>
 
+    <!-- =================================================================
+    HERO SECTION (HOME )
+    The main landing area with the primary headline and call to action.
+    ================================================================== -->
     <section id="home" class="hero">
+
+        <!-- Particle.js background canvas -->
         <div id="particles-js"></div>
+
         <div class="container">
-            <h1>Mohab Mohamed Ramadan</h1>
+
+            <!-- Main Headline -->
+            <h1>Mohab Mohamed Ali Mohamed Ramadan</h1>
+
+            <!-- Subtitle -->
             <p class="subtitle">IT Specialist in Cybersecurity, AI & Cloud</p>
+
+            <!-- Social Media Links -->
             <div class="social-links">
                 <a href="https://linkedin.com/in/muhaabmohamed" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/Veein-web" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.instagram.com/muhaab.m.ali/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
+
+            <!-- Primary Call to Action Button -->
             <a href="#contact" class="cta-button">Get In Touch</a>
+
         </div>
     </section>
 
+    <!-- =================================================================
+    ABOUT ME SECTION
+    A brief introduction about myself.
+    ================================================================== -->
     <section id="about">
         <div class="container">
+
+            <!-- Section Title -->
             <h2 class="section-title animate-on-scroll zoom-in">About Me</h2>
-            <div class="about-content">
-                <div class="about-image animate-on-scroll slide-in-from-left">
-                    <!-- === THIS IS THE NEW, CORRECTED IMAGE LINK === -->
-                    <img src="https://i.imgur.com/gAv242B.jpeg" alt="Mohab Mohamed's Portrait">
-                </div>
-                <div class="about-text animate-on-scroll slide-in-from-right">
+
+            <!-- Content Area (No Image Layout ) -->
+            <div class="about-content-no-image">
+                <div class="about-text animate-on-scroll zoom-in">
                     <h3>Driven by Innovation & Security</h3>
-                    <p>I am a dedicated IT specialist focusing on <strong>Cybersecurity, AI, and Cloud Technologies</strong>. I thrive on architecting secure, intelligent systems and am passionate about driving innovation through hands-on projects and continuous learning.</p>
+                    <p>
+                        I am a dedicated IT specialist focusing on <strong>Cybersecurity, AI, and Cloud Technologies</strong>. 
+                        I thrive on architecting secure, intelligent systems and am passionate about driving innovation 
+                        through hands-on projects and continuous learning.
+                    </p>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- ... (The rest of the file remains exactly the same ) ... -->
-
+    <!-- =================================================================
+    PROJECTS SECTION
+    Showcasing key projects with descriptions and links.
+    ================================================================== -->
     <section id="projects">
         <div class="container">
+
+            <!-- Section Title -->
             <h2 class="section-title animate-on-scroll zoom-in">My Projects</h2>
+
+            <!-- Grid container for project cards -->
             <div class="project-grid">
+
+                <!-- Project Card 1 -->
                 <div class="project-card animate-on-scroll zoom-in">
                     <h3>Intelligent Access & Threat Monitoring System</h3>
                     <p>A full-stack, cloud-native security application that monitors user access and detects threats in real-time using an AI model.</p>
                     <div class="project-footer">
                         <span>Python, Flask, Docker, CI/CD</span>
-                        <a href="#" class="project-link" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/Veein-web" target="_blank" class="project-link">View Code <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
+
+                <!-- Project Card 2 -->
                 <div class="project-card animate-on-scroll zoom-in">
                     <h3>Remova AI – Intelligent Background Remover</h3>
                     <p>A web application that intelligently removes image backgrounds using an AI model, featuring secure authentication and a credit-based system.</p>
                     <div class="project-footer">
                         <span>Python, Flask, AI, OAuth 2.0</span>
-                        <a href="#" class="project-link" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/Veein-web" target="_blank" class="project-link">View Code <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
+
+                <!-- Project Card 3 -->
                 <div class="project-card animate-on-scroll zoom-in">
                     <h3>Secure Cloud AI Log Monitoring System</h3>
                     <p>A robust system designed to log user activity and detect suspicious login behavior using AI, with real-time alerts on AWS.</p>
                     <div class="project-footer">
                         <span>Python, Flask, AWS, Docker</span>
-                        <a href="#" class="project-link" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://github.com/Veein-web" target="_blank" class="project-link">View Code <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- =================================================================
+    SKILLS SECTION
+    A grid of core technical skills.
+    ================================================================== -->
     <section id="skills">
         <div class="container">
+
+            <!-- Section Title -->
             <h2 class="section-title animate-on-scroll zoom-in">Core Technical Skills</h2>
+
+            <!-- Grid container for skill items -->
             <div class="skills-grid">
                 <div class="skill-item animate-on-scroll zoom-in">Cybersecurity</div>
                 <div class="skill-item animate-on-scroll zoom-in">Threat Detection</div>
@@ -105,26 +188,134 @@
                 <div class="skill-item animate-on-scroll zoom-in">AWS Cloud</div>
                 <div class="skill-item animate-on-scroll zoom-in">Systems Design</div>
             </div>
+
         </div>
     </section>
 
+    <!-- =================================================================
+    CERTIFICATIONS SECTION
+    A grid of licenses and certifications with verifiable links.
+    ================================================================== -->
     <section id="certifications">
         <div class="container">
+
+            <!-- Section Title -->
             <h2 class="section-title animate-on-scroll zoom-in">Licenses & Certifications</h2>
+
+            <!-- Grid container for certification cards -->
             <div class="cert-grid">
-                <a href="#" target="_blank" class="cert-card-link animate-on-scroll zoom-in"><div class="cert-card"><h3>Ultimate AWS Certified Cloud Practitioner</h3><p>Provider: Udemy</p></div></a>
-                <a href="#" target="_blank" class="cert-card-link animate-on-scroll zoom-in"><div class="cert-card"><h3>Certified in Cybersecurity (CC) - ISC2</h3><p>Provider: Udemy</p></div></a>
-                <a href="#" target="_blank" class="cert-card-link animate-on-scroll zoom-in"><div class="cert-card"><h3>Cybersecurity Foundations</h3><p>Provider: LinkedIn</p></div></a>
-                <a href="#" target="_blank" class="cert-card-link animate-on-scroll zoom-in"><div class="cert-card"><h3>Cybersecurity Fundamentals</h3><p>Provider: IBM</p></div></a>
-                <a href="#" target="_blank" class="cert-card-link animate-on-scroll zoom-in"><div class="cert-card"><h3>DevOps Foundations: CI/CD</h3><p>Provider: LinkedIn</p></div></a>
-                <a href="#" target="_blank" class="cert-card-link animate-on-scroll zoom-in"><div class="cert-card"><h3>Gen AI: Beyond the Chatbot</h3><p>Provider: Google Cloud</p></div></a>
+
+                <!-- Certification Card: AWS -->
+                <a href="https://ude.my/UC-9756fd77-a0fe-4072-86e3-a6510f1dfde5" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Ultimate AWS Certified Cloud Practitioner</h3>
+                        <p>Provider: Udemy</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: ISC2 CC -->
+                <a href="https://ude.my/UC-8025a689-25e6-468e-9369-468e91abc64a" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Certified in Cybersecurity (CC ) - ISC2</h3>
+                        <p>Provider: Udemy</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: ISC2 CISSP -->
+                <a href="https://ude.my/UC-201292d9-a51b-4be9-9496-736d8d61ffba" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>ISC2 CISSP Full Course & Practice Exam</h3>
+                        <p>Provider: Udemy</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: IBM -->
+                <a href="https://www.credly.com/badges/d7bc98f0-b64b-43e3-809b-e4dacc0747d3" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Cybersecurity Fundamentals</h3>
+                        <p>Provider: IBM</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: Google Cloud -->
+                <a href="https://coursera.org/verify/6N6WBXVHA4T9" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Digital Transformation with Google Cloud</h3>
+                        <p>Provider: Coursera</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: Google AI Job Search -->
+                <a href="https://coursera.org/verify/7WCDKOQZWGOS" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Accelerate Your Job Search with AI</h3>
+                        <p>Provider: Google (Coursera )</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: Google Gen AI -->
+                <a href="https://coursera.org/verify/FJH43ZI5O1EM" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Gen AI: Beyond the Chatbot</h3>
+                        <p>Provider: Google Cloud (Coursera )</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: Microsoft Azure AI -->
+                <a href="https://learn.microsoft.com/en-us/users/mohabmohamed-4631/achievements/print/ur9t24c3" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Get started with generative AI in Azure</h3>
+                        <p>Provider: Microsoft Learn</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: Microsoft AI Concepts -->
+                <a href="https://learn.microsoft.com/en-us/users/mohabmohamed-4631/achievements/print/w28gezxn" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Introduction to AI concepts</h3>
+                        <p>Provider: Microsoft Learn</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: Microsoft Web App Settings -->
+                <a href="https://learn.microsoft.com/en-us/users/mohabmohamed-4631/achievements/print/3ausv3wh" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Configure web app settings</h3>
+                        <p>Provider: Microsoft Learn</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: LinkedIn DevOps -->
+                <a href="https://www.linkedin.com/learning" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>DevOps Foundations: CI/CD</h3>
+                        <p>Provider: LinkedIn Learning</p>
+                    </div>
+                </a>
+
+                <!-- Certification Card: LinkedIn Cybersecurity -->
+                <a href="https://www.linkedin.com/learning" target="_blank" class="cert-card-link animate-on-scroll zoom-in">
+                    <div class="cert-card">
+                        <h3>Cybersecurity Foundations</h3>
+                        <p>Provider: LinkedIn Learning</p>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
 
+    <!-- =================================================================
+    VOLUNTEER EXPERIENCE SECTION
+    Highlighting community service and soft skills.
+    ================================================================== -->
     <section id="experience">
         <div class="container">
+
+            <!-- Section Title -->
             <h2 class="section-title animate-on-scroll zoom-in">Volunteer Experience</h2>
+
+            <!-- Experience Card -->
             <div class="experience-card animate-on-scroll zoom-in">
                 <div class="experience-icon">
                     <i class="fas fa-hands-helping"></i>
@@ -132,25 +323,58 @@
                 <div class="experience-details">
                     <h3>Volunteer</h3>
                     <h4>Resala Charity Organization</h4>
-                    <p>Actively participated in various charitable activities, including distribution drives and local community support initiatives. This experience enhanced my teamwork, communication, and community service skills.</p>
+                    <p>
+                        Actively participated in various charitable activities, including distribution drives and local 
+                        community support initiatives. This experience enhanced my teamwork, communication, and 
+                        community service skills.
+                    </p>
                 </div>
             </div>
+
         </div>
     </section>
 
+    <!-- =================================================================
+    CONTACT SECTION
+    Final call to action and contact information.
+    ================================================================== -->
     <section id="contact">
         <div class="container">
+
+            <!-- Section Title -->
             <h2 class="section-title animate-on-scroll zoom-in">Let's Connect</h2>
-            <p class="animate-on-scroll zoom-in">I'm actively seeking new opportunities and am open to discussing projects, creative ideas, or how I can contribute to your team's success.</p>
-            <a href="mailto:hobaa4673@gmail.com" class="cta-button animate-on-scroll zoom-in"><i class="fas fa-envelope"></i> Say Hello</a>
+
+            <!-- Contact Pitch -->
+            <p class="animate-on-scroll zoom-in">
+                I'm actively seeking new opportunities and am open to discussing projects, creative ideas, 
+                or how I can contribute to your team's success.
+            </p>
+
+            <!-- Mailto Button -->
+            <a href="mailto:hobaa4673@gmail.com" class="cta-button animate-on-scroll zoom-in">
+                <i class="fas fa-envelope"></i> Say Hello
+            </a>
+
         </div>
     </section>
 
+    <!-- =================================================================
+    FOOTER SECTION
+    Copyright and final credits.
+    ================================================================== -->
     <footer>
         <p>&copy; 2025 Mohab Mohamed Ramadan. Designed & Built with Passion.</p>
     </footer>
 
+    <!-- =================================================================
+    JAVASCRIPT LIBRARIES AND MAIN SCRIPT
+    ================================================================== -->
+
+    <!-- Particles.js Library for background animation -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Main Custom Script -->
     <script src="script.js"></script>
+
 </body>
 </html>

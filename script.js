@@ -1,69 +1,132 @@
-document.addEventListener('DOMContentLoaded', function() {
+/*
+=================================================================
+|   INTERACTIVE SCRIPT - VIOLET & BLACK THEME                   |
+|   Version: 6.0 (Color & Cursor Overhaul)                      |
+=================================================================
+*/
 
-    // --- Mobile Navigation (Hamburger Menu) ---
-    const hamburger = document.getElementById('hamburger-icon');
-    const nav = document.querySelector('.main-nav');
-    hamburger.addEventListener('click', () => {
-        nav.classList.toggle('is-active');
-        const icon = hamburger.querySelector('i');
-        if (nav.classList.contains('is-active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCustomCursor();
+    initializeMobileNavigation();
+    initializeScrollAnimations();
+    initializeParticleBackground();
+    console.log("Portfolio script v6.0 initialized successfully.");
+});
+
+/**
+ * MODULE: CUSTOM CURSOR (NEW TRIANGLE DESIGN)
+ */
+function initializeCustomCursor() {
+    const cursorDot = document.querySelector(".cursor-dot");
+    const cursorOutline = document.querySelector(".cursor-outline");
+    
+    if (!cursorDot || !cursorOutline) {
+        console.error("Custom cursor elements not found.");
+        return;
+    }
+
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
+
+    window.addEventListener("mousemove", e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
     });
 
-    // --- Smooth scrolling & close mobile menu on link click ---
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (nav.classList.contains('is-active')) {
-                nav.classList.remove('is-active');
-                const icon = hamburger.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-            }
+    const animateCursor = () => {
+        outlineX += (mouseX - outlineX) * 0.1;
+        outlineY += (mouseY - outlineY) * 0.1;
+
+        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        // The triangle's rotation is now handled by CSS animation.
+        // We only update its position.
+        cursorOutline.style.left = `${outlineX}px`;
+        cursorOutline.style.top = `${outlineY}px`;
+
+        requestAnimationFrame(animateCursor);
+    };
+    requestAnimationFrame(animateCursor);
+
+    const interactiveElements = document.querySelectorAll('a, button, .skill-item');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseover', () => {
+            // NEW INTERACTION: Hide cursor and apply glow to the element
+            cursorDot.style.opacity = '0';
+            cursorOutline.style.opacity = '0';
+            el.style.boxShadow = '0 0 25px var(--primary-glow)';
+        });
+        el.addEventListener('mouseleave', () => {
+            // Restore cursor and remove glow
+            cursorDot.style.opacity = '1';
+            cursorOutline.style.opacity = '1';
+            el.style.boxShadow = ''; // Reset box-shadow
         });
     });
 
-    // --- Intersection Observer for scroll animations ---
+    document.body.addEventListener('mouseenter', () => document.body.classList.add('cursor-visible'));
+    document.body.addEventListener('mouseleave', () => document.body.classList.remove('cursor-visible'));
+}
+
+/**
+ * MODULE: MOBILE NAVIGATION
+ */
+function initializeMobileNavigation() {
+    const hamburger = document.getElementById('hamburger-icon');
+    const nav = document.querySelector('.main-nav');
+    if (!hamburger || !nav) return;
+
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('is-active');
+        const icon = hamburger.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+}
+
+/**
+ * MODULE: SCROLL-BASED ANIMATIONS
+ */
+function initializeScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1 });
-    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-    elementsToAnimate.forEach((el) => observer.observe(el));
 
-    // --- NEW: Parallax effect for about image ---
-    const aboutImage = document.querySelector('.about-image img');
-    window.addEventListener('scroll', () => {
-        if (window.innerWidth > 768) { // Only apply on desktop
-            const scrollPosition = window.pageYOffset;
-            // The '0.1' value controls the speed of the parallax effect.
-            // A smaller value means a slower, more noticeable effect.
-            aboutImage.style.transform = `translateY(${scrollPosition * 0.1}px)`;
-        }
-    });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+}
 
-    // --- Particles.js for animated background ---
-    if (window.innerWidth > 768) {
+/**
+ * MODULE: PARTICLE BACKGROUND (VIOLET THEME)
+ */
+function initializeParticleBackground() {
+    if (window.innerWidth > 768 && typeof particlesJS !== 'undefined') {
         particlesJS("particles-js", {
-            "particles": { "number": { "value": 60, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.4, "random": true }, "size": { "value": 2, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1.5, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false } },
-            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": false }, "resize": true }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } } } },
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                // NEW: Violet color for particles
+                "color": { "value": "#a855f7" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 2.5, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    // NEW: Violet color for lines
+                    "color": "#a855f7",
+                    "opacity": 0.1,
+                    "width": 1
+                },
+                "move": { "enable": true, "speed": 0.8, "direction": "none", "random": true, "out_mode": "out" }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "grab" } },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.2 } } }
+            },
             "retina_detect": true
         });
     }
-});
+}
